@@ -8397,21 +8397,12 @@ enifed("ember-data/system/record_array_manager",
       willDestroy: function(){
         this._super();
 
-        forEach(flatten(values(this.filteredRecordArrays.values)), destroy);
+        this.filteredRecordArrays.forEach(function(value) {
+            forEach(flatten(value), destroy);
+        });
         forEach(this._adapterPopulatedRecordArrays, destroy);
       }
     });
-
-    function values(obj) {
-      var result = [];
-      var keys = Ember.keys(obj);
-
-      for (var i = 0; i < keys.length; i++) {
-        result.push(obj[keys[i]]);
-      }
-
-      return result;
-    }
 
     function destroy(entry) {
       entry.destroy();
