@@ -4,6 +4,9 @@
   "description": "A data persistence library for Ember.js.",
   "keywords": ["ember"],
   "main": "./ember-data.js",
+  "ember-addon": {
+    "main": "./ember-data.js"
+  },
   "dependencies": {
     "ember": "> 1.0.0"
   }
